@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+int main() {
+    int rows1, cols1, rows2, cols2;
+    int matrix1[100][100], matrix2[100][100];
+    int i, j, isEqual = 1;
+
+    printf("Enter the number of rows and columns for the first matrix: ");
+    scanf("%d %d", &rows1, &cols1);
+
+    printf("Enter the elements of the first matrix:\n");
+    for (i = 0; i < rows1; i++) {
+        for (j = 0; j < cols1; j++) {
+            scanf("%d", &matrix1[i][j]);
+        }
+    }
+
+    printf("Enter the number of rows and columns for the second matrix: ");
+    scanf("%d %d", &rows2, &cols2);
+
+    printf("Enter the elements of the second matrix:\n");
+    for (i = 0; i < rows2; i++) {
+        for (j = 0; j < cols2; j++) {
+            scanf("%d", &matrix2[i][j]);
+        }
+    }
+
+    if (rows1 != rows2 || cols1 != cols2) {
+        isEqual = 0;
+    } else {
+        for (i = 0; i < rows1; i++) {
+            for (j = 0; j < cols1; j++) {
+                if (matrix1[i][j] != matrix2[i][j]) {
+                    isEqual = 0;
+                    break;
+                }
+            }
+            if (isEqual == 0) {
+                break;
+            }
+        }
+    }
+
+    if (isEqual) {
+        printf("The two matrices are equal.\n");
+    } else {
+        printf("The two matrices are not equal.\n");
+    }
+
+    return 0;
+}
