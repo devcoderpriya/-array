@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main() {
+  int rows, cols, i, j;
+
+  printf("Enter the number of rows: ");
+  scanf("%d", &rows);
+  printf("Enter the number of columns: ");
+  scanf("%d", &cols);
+
+ 
+  int arr[rows][cols];
+
+
+  printf("Enter the elements of the array:\n");
+  for (i = 0; i < rows; i++) {
+    for (j = 0; j < cols; j++) {
+      printf("arr[%d][%d] = ", i, j);
+      scanf("%d", &arr[i][j]);
+    }
+  }
+
+ 
+  int rowIndex, colIndex;
+  printf("Enter the row index to find: ");
+  scanf("%d", &rowIndex);
+   printf("Enter the column index to find: ");
+  scanf("%d", &colIndex);
+
+  
+  if (rowIndex >= 0 && rowIndex < rows && colIndex >=0 && colIndex < cols) {
+
+    printf("Element at index [%d][%d]: %d\n", rowIndex, colIndex, arr[rowIndex][colIndex]);
+  } else {
+    printf("Invalid index\n");
+  }
+
+  return 0;
+}
