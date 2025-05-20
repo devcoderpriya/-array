@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Comparator function for descending order
+int compare(const void *a, const void *b) {
+    return (*(int*)b - *(int*)a);
+}
+
+int main() {
+    int m, n;
+
+    // Input dimensions of the matrix
+    printf("Enter the number of rows: ");
+    scanf("%d", &m);
+    printf("Enter the number of columns: ");
+    scanf("%d", &n);
+
+    int arr[m][n];
+    int total_elements = m * n;
+
+    // Input elements of the matrix
+    printf("Enter the elements of the matrix:\n");
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("Element [%d][%d]: ", i, j);
+            scanf("%d", &arr[i][j]);
+        }
+    }
+
+    // Flatten the 2D array into a 1D array
+    int flat[total_elements];
+    int index = 0;
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            flat[index++] = arr[i][j];
+        }
+    }
+
+    // Sort the 1D array in descending order
+    qsort(flat, total_elements, sizeof(int), compare);
+
+    // Place the sorted elements back into the 2D array
+    index = 0;
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            arr[i][j] = flat[index++];
+        }
+    }
+
+    // Output the sorted 2D array
+    printf("\nMatrix after sorting in descending order:\n");
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
