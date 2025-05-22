@@ -1,0 +1,42 @@
+#include<stdio.h>
+int main(){
+    int row;
+    printf("Enter your row element size :- ");
+    scanf("%d",&row);
+
+    int cols;
+    printf("Enter your columns element size :- ");
+    scanf("%d",&cols);
+
+    int i, j;
+    int arr[row][cols];
+    int transpose[row][cols];
+
+    for(i=0; i<row; i++){
+        for(j=0; j<cols; j++){
+            printf("array[%d][%d] : ",i,j);
+            scanf("%d",&arr[i][j]);
+        }
+    }
+    for(i=0; i<row; i++){
+        for(j=0; j<cols; j++){
+           transpose[i][j]=arr[j][i];
+        }
+    }
+    for(i=0; i<row; i++){
+        for(j=0; j<cols; j++){
+            printf("%d ",arr[i][j]);
+        }
+        printf("\n");
+    }
+    printf("After transpose.\n");
+    for(i=0; i<row; i++){
+        for(j=0; j<cols; j++){
+            printf("%d ",transpose[i][j]);
+        }
+        printf("\n");
+    }
+
+    
+    return 0;
+} transpose bala
