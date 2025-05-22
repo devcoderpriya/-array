@@ -1,0 +1,63 @@
+#include<stdio.h>
+int main(){
+    int row;
+    printf("Enter your row element size :- ");
+    scanf("%d",&row);
+
+    int cols;
+    printf("Enter your columns element size :- ");
+    scanf("%d",&cols);
+
+    int i, j;
+    int arr[row][cols];
+
+    for (i = 0; i < row; i++) {
+        for (j = 0; j < cols; j++) {
+            printf("Element [%d][%d]: ", i, j);
+            scanf("%d", &arr[i][j]);
+        }
+    }
+     for (i = 0; i < row; i++) {
+        for (j = 0; j < cols; j++) {
+            printf("%d ",arr[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Spiral order traversal
+    int top = 0, bottom = row - 1;
+   int left = 0, right = cols - 1;
+
+    printf("Spiral order :\n");
+   while (top <= bottom && left <= right) {
+        // Print top row
+        for (int i = left; i <= right; i++) {
+            printf("%d ", arr[top][i]);
+        }
+        top++;
+
+        // Print right column
+        for (int i = top; i <= bottom; i++) {
+           printf("%d ", arr[i][right]);
+        }
+        right--;
+
+        // Print bottom row if still valid
+        if (top <= bottom) {
+            for (int i = right; i >= left; i--) {
+                printf("%d ", arr[bottom][i]);
+            }
+            bottom--;
+        }
+
+        // Print left column if still valid
+        if (left <= right) {
+            for (int i = bottom; i >= top; i--) {
+                printf("%d ", arr[i][left]);
+            }
+            left++;
+        }
+    }
+
+    return 0;
+} Spiral order hai
