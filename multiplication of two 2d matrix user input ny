@@ -1,0 +1,56 @@
+#include<stdio.h>
+int main(){
+    int row;
+    printf("enter the row size:-");
+    scanf("%d",&row);
+    
+    int column;
+    printf("enter the row size:-");
+    scanf("%d",&column);
+    
+    int i,j,k;
+    int product[row][column];
+    int arr1[row][column];
+    printf("enter the element of 1 matrix:-");
+    for(i=0;i<row;i++){
+        for(j=0;j<column;j++){
+            scanf("%d",&arr1[i][j]);
+        }
+    }
+     for(i=0;i<row;i++){
+        for(j=0;j<column;j++){
+            printf("%d",arr1[i][j]);
+        }
+     }
+     int arr2[row][column];
+       printf("enter the element of 2 matrix:-");
+     for(i=0;i<row;i++){
+        for(j=0;j<column;j++){
+            scanf("%d",&arr2[i][j]);
+        }
+    }
+     for(i=0;i<row;i++){
+        for(j=0;j<column;j++){
+            printf("%d",arr2[i][j]);
+        }
+    }
+    for(i=0;i<row;i++){
+        for(j=0;j<column;j++){
+                int sum = 0;
+            for (int k = 0; k < column; k++) {
+                sum += arr1[i][k] * arr2[k][j];
+            }
+            product[i][j] = sum;
+        }
+    }
+
+    printf("Product of the matrices:\n");
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < row; j++) {
+            printf("%d ", product[i][j]);
+        }
+        printf("\n");
+    }
+        
+    return 0;
+}
